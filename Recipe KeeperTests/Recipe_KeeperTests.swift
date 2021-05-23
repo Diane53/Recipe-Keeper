@@ -7,6 +7,7 @@
 
 import XCTest
 @testable import Recipe_Keeper
+import SwiftUI
 
 class Recipe_KeeperTests: XCTestCase {
 
@@ -30,4 +31,10 @@ class Recipe_KeeperTests: XCTestCase {
         }
     }
 
+}
+
+struct Recipe_KeeperTests_Previews: PreviewProvider {
+    static var previews: some View {
+        /*@START_MENU_TOKEN@*/Text("Hello, World!")/*@END_MENU_TOKEN@*/
+    }
 }
