@@ -9,36 +9,41 @@ import SwiftUI
 
 struct RecipeListView: View {
     
-    @ObservedObject var model = RecipeModel()
+    @ EnvironmentObject var model:RecipeModel
     
     var body: some View {
-       
+        
         NavigationView {
-            List(model.recipes) { r in
-            NavigationLink(
-                destination: RecipeDetailView(recipe:r),
-                label: {
-                    HStack(spacing: 20.0) {
+            List(model.recipes) {r in
+                
+                NavigationLink (
+                    destination: RecipeDetailView(recipe:r),
+                    label: {
+                // MARK: row item
+                        HStack(spacing: 20){
+                    //Recipe Image
                         Image(r.image)
                             .resizable()
-                            .scaledToFit()
-                            .frame(width: 50, height: 50, alignment: .center)
+                            .scaledToFill()
+                            .frame(width: 50, height: 50)
                             .clipped()
-                            .cornerRadius(10.0)
+                            .cornerRadius(10)
+                        //MARK: reicpe name
                         Text(r.name)
-                            .font(.title3)
                     }
-                })
+                    })
             }
-            .navigationBarTitle("My Recipes")
+            .navigationBarTitle("Recipe List")
         }
+        
     }
 }
-
 
 
 struct RecipeListView_Previews: PreviewProvider {
     static var previews: some View {
+            
         RecipeListView()
     }
 }
+

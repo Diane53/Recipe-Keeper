@@ -14,6 +14,7 @@ class Recipe: Identifiable, Decodable {
     var image: String
     var description:String
     var prepTime:String
+    var cookTime:String
     var totalTime:String
     var servings:Int
     var highlights:[String]
@@ -27,5 +28,5 @@ class Ingredient: Identifiable, Decodable {
     var name:String
     var num:Int?
     var denom:Int?
-    var unit: String
+    var unit: String?
 }

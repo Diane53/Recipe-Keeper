@@ -8,31 +8,37 @@
 import SwiftUI
 
 struct RecipeDetailView: View {
+   
+    @EnvironmentObject var model:RecipeModel
     
     var recipe:Recipe
     
     var body: some View {
         
         ScrollView {
-            
+            //add image
             VStack(alignment: .leading) {
                 Image(recipe.image)
                     .resizable()
                     .padding(.bottom, 15.0)
                     .frame(width: 0.0)
                     .scaledToFit()
-            }
             .padding(.horizontal, 7.0)
+            .padding(.top, 7.0)
+            //add ingredients
             VStack(alignment: .leading, spacing: 3) {
-                    Text("Ingredients").font(.headline)
+                Text("Ingredients")
+                    .font(.headline)
                 ForEach(recipe.ingredients) {
                         item in
-                    Text("\(item.name)")
+                    Text("• \(item.name)")
                             .font(.callout)
                     }
             }
             .padding(.horizontal, 7.0)
-            
+                
+            Divider()
+            //add directions
             VStack(alignment: .leading, spacing: 3){
                 Text("Directions")
                     .font(.headline)
@@ -43,8 +49,9 @@ struct RecipeDetailView: View {
                 }
             }
             .padding(.horizontal, 7.0)
-        }
+            }
         .navigationBarTitle(recipe.name)
+        }
     }
 }
 
@@ -57,3 +64,4 @@ struct RecipeDetailView_Previews: PreviewProvider {
         RecipeDetailView(recipe: model.recipes[0])
     }
 }
+

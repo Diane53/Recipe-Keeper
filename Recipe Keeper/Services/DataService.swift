@@ -6,7 +6,6 @@
 //
 
 import Foundation
-import SwiftUI
 
 //This file crreates a single location from which all data is fetched
 
